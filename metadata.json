@@ -1,0 +1,6 @@
+{
+  "name": "VELIXO Estates",
+  "description": "A luxury real estate property portfolio featuring modern architectural designs and landscape layouts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
