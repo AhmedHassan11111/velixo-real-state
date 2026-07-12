@@ -1,7 +1,6 @@
 import { SectionContainer } from "@/components/kit/SectionContainer";
 import { Eyebrow } from "@/components/kit/Eyebrow";
 import { Headline } from "@/components/kit/Headline";
-import { Button } from "@/components/ui/button";
 import { content } from "@/data/content";
 import { ScrollReveal } from "@/components/kit/ScrollReveal";
 
@@ -22,13 +21,12 @@ export function ContactSection() {
             <p className="text-body text-mist mb-10">{content.contact.copy}</p>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
-            <Button
-              variant="solid"
-              size="lg"
-              className="text-base uppercase tracking-wider px-10 py-4"
+            <a
+              href={content.footer.contactHref}
+              className="inline-flex items-center justify-center rounded-full bg-ink px-10 py-4 text-base font-medium uppercase tracking-wider text-paper transition-colors hover:bg-accent hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
             >
               {content.footer.ctaLabel}
-            </Button>
+            </a>
           </ScrollReveal>
         </div>
       </SectionContainer>

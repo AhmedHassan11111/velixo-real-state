@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/kit/Eyebrow";
 import { Headline } from "@/components/kit/Headline";
 import { SectionContainer } from "@/components/kit/SectionContainer";
@@ -62,9 +61,18 @@ export function HeroSection() {
           style={{ zIndex: 10, y: finalYText, opacity: finalOpacityText }}
         >
           <SectionContainer>
-            <Eyebrow className="block mb-6 text-accent">
-              {content.hero.eyebrow}
-            </Eyebrow>
+            <div className="flex flex-col items-start mb-6">
+              <Eyebrow
+                className="block text-accent uppercase tracking-widest"
+                style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}
+              >
+                {content.hero.eyebrow}
+              </Eyebrow>
+              <div
+                className="w-16 h-[1px] bg-accent mt-2"
+                style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.4)" }}
+              />
+            </div>
             <Headline
               level={1}
               highlight={content.hero.highlightedWord}
@@ -75,14 +83,19 @@ export function HeroSection() {
             <p className="text-body text-paper/80 max-w-xl mb-10">
               {content.hero.subheadline}
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button
-                variant="liquid-glass"
-                size="lg"
-                className="text-base uppercase tracking-wider px-8 py-4"
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="#residence"
+                className="glass-cta inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-medium uppercase tracking-wider"
               >
                 {content.hero.ctaPrimary}
-              </Button>
+              </a>
+              <a
+                href="#contact"
+                className="glass-link text-sm font-medium uppercase tracking-widest text-paper/80 hover:text-paper"
+              >
+                {content.hero.ctaSecondary}
+              </a>
             </div>
           </SectionContainer>
         </motion.div>

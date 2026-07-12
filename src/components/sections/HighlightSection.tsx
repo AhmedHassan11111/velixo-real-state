@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { content } from "@/data/content";
 import { getImage } from "@/data/images";
 import { fonts } from "@/lib/fonts";
 
@@ -35,7 +36,6 @@ export function HighlightSection() {
           src={img.path}
           alt={img.alt}
           fill
-          priority
           sizes="100vw"
           className="object-cover opacity-80"
           referrerPolicy="no-referrer"
@@ -55,11 +55,11 @@ export function HighlightSection() {
           className="flex flex-col items-center gap-6"
         >
           <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent">
-            Nocturnal Harmony
+            {content.highlight.label}
           </span>
           
           <h2 className={`text-3xl md:text-5xl font-normal leading-tight max-w-2xl tracking-tight text-white ${fonts.fraunces}`}>
-            “At dusk, the structure becomes a beacon of quiet warmth—dissolving gently into the shadows of the valley.”
+            {content.highlight.quote}
           </h2>
           
           <div className="w-12 h-[1px] bg-accent/40 mt-4" />

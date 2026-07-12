@@ -56,6 +56,8 @@ export interface FooterContent {
   headline: string;
   ctaLabel: string;
   ctaHref: string;
+  contactHref: string;
+  creditHref: string;
   columns: {
     title: string;
     links: NavItem[];
@@ -64,11 +66,26 @@ export interface FooterContent {
   legal: string;
 }
 
+export interface GalleryItem {
+  imageKey: string;
+  label: string;
+  caption: string;
+}
+
 export interface SiteContent {
   nav: NavItem[];
   hero: HeroContent;
   propertyOverview: SectionContent;
   imagePairs: ImagePairContent[];
+  gallery: SectionContent & { items: GalleryItem[] };
+  highlight: {
+    label: string;
+    quote: string;
+  };
+  featuresIntro: {
+    eyebrow: string;
+    title: string;
+  };
   features: FeatureItem[];
   values: ValueItem[];
   manifesto: {
@@ -139,10 +156,41 @@ export const content: SiteContent = {
       rightImageKey: "pair-outdoor-lounge",
     },
   ],
+  gallery: {
+    id: "gallery",
+    eyebrow: "Gallery",
+    title: "Details in composition.",
+    copy: "A curated selection of moments capturing the dialogue between form, light, and natural landscape.",
+    items: [
+      {
+        imageKey: "gallery-entrance",
+        label: "01 // The Arrival",
+        caption: "North-facing glass entry vestibule",
+      },
+      {
+        imageKey: "gallery-garden",
+        label: "02 // Courtyard Sanctuary",
+        caption: "Framed transition between home and landscape",
+      },
+      {
+        imageKey: "gallery-corridor",
+        label: "03 // Internal Axis",
+        caption: "Linear corridor looking onto cedar cladding",
+      },
+    ],
+  },
+  highlight: {
+    label: "Nocturnal Harmony",
+    quote: "At dusk, the structure becomes a beacon of quiet warmth, dissolving gently into the shadows of the valley.",
+  },
+  featuresIntro: {
+    eyebrow: "Craftsmanship & Design",
+    title: "Refined in detail, built for longevity.",
+  },
   features: [
     {
       title: "Architectural integrity",
-      copy: "Every junction is resolved. Materials meet in deliberate, exposed connections — no trim, no覆盖. The structure is the finish.",
+      copy: "Every junction is resolved. Materials meet in deliberate, exposed connections — no trim, no disguise. The structure is the finish.",
       imageKey: "feature-facade",
     },
     {
@@ -262,6 +310,8 @@ export const content: SiteContent = {
     headline: "VELIXO Estates",
     ctaLabel: "Contact Velixo.io",
     ctaHref: "#contact",
+    contactHref: "mailto:hello@velixo.io",
+    creditHref: "https://velixo.io",
     columns: [
       {
         title: "Explore",
@@ -274,8 +324,8 @@ export const content: SiteContent = {
       {
         title: "Connect",
         links: [
-          { label: "Instagram", href: "#" },
-          { label: "LinkedIn", href: "#" },
+          { label: "Instagram", href: "https://velixo.io" },
+          { label: "LinkedIn", href: "https://velixo.io" },
           { label: "Email", href: "mailto:hello@velixo.io" },
         ],
       },

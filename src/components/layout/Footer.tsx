@@ -15,22 +15,35 @@ export function Footer() {
                 <span className="text-xs uppercase tracking-widest text-mist">
                   {col.title}
                 </span>
-                {col.links.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="text-sm text-paper/70 hover:text-accent transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {col.links.map((link) => {
+                  const isExternal = link.href.startsWith("https://");
+
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      className="text-sm text-paper/70 transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noreferrer" : undefined}
+                    >
+                      {link.label}
+                    </a>
+                  );
+                })}
               </div>
             ))}
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-paper/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <span className="text-xs text-mist">{content.footer.legal}</span>
-          <span className="text-xs text-mist">{content.footer.velixoCredit}</span>
+          <a
+            href={content.footer.creditHref}
+            className="text-xs text-mist transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {content.footer.velixoCredit}
+          </a>
         </div>
       </SectionContainer>
     </footer>

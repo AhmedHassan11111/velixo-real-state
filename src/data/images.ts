@@ -7,7 +7,7 @@ export interface ImageAsset {
 
 export const images: Record<string, ImageAsset> = {
   "hero": {
-    path: "/images/hero.jpg",
+    path: "/images/hero.jpeg",
     alt: "VELIXO residence at dusk — black glass villa with warm interior light",
     width: 2752,
     height: 1536,

@@ -415,7 +415,7 @@ export const content: SiteContent = {
   features: [
     {
       title: "Architectural integrity",
-      copy: "Every junction is resolved. Materials meet in deliberate, exposed connections — no trim, no覆盖. The structure is the finish.",
+      copy: "Every junction is resolved. Materials meet in deliberate, exposed connections — no trim, no disguise. The structure is the finish.",
       imageKey: "feature-facade",
     },
     {

@@ -13,21 +13,17 @@ export function FeaturesSection() {
 
   return (
     <section id="lifestyle" className="py-24 md:py-32 bg-ink text-paper relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-12 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-12 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-
       <SectionContainer>
         {/* Section Header */}
         <div className="max-w-3xl mb-20 md:mb-28">
           <ScrollReveal>
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent mb-4 block">
-              Craftsmanship & Design
+              {content.featuresIntro.eyebrow}
             </span>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <Headline level={2} className="text-paper text-4xl md:text-5xl leading-tight font-light">
-              Refined in detail, built for longevity.
+              {content.featuresIntro.title}
             </Headline>
           </ScrollReveal>
         </div>
@@ -61,7 +57,6 @@ export function FeaturesSection() {
                     sizes="(max-width: 1024px) 100vw, 55vw"
                     className="object-cover"
                     referrerPolicy="no-referrer"
-                    priority={idx === 0}
                   />
                   {/* Subtle luxurious overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
