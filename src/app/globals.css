@@ -101,8 +101,8 @@
   --text-h1: clamp(2.25rem, 5vw, 4rem);
   --text-h2: clamp(1.75rem, 4vw, 3rem);
   --text-h3: clamp(1.25rem, 2.5vw, 1.75rem);
-  --text-body: 1rem;
-  --text-eyebrow: 0.75rem;
+  --text-body: clamp(0.95rem, 2vw, 1.05rem);
+  --text-eyebrow: clamp(0.7rem, 1.6vw, 0.8rem);
 
   --section-pad: clamp(1rem, 3vw, 2.5rem);
   --container-max: 1440px;

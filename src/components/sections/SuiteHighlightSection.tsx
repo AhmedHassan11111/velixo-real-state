@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { getImage } from "@/data/images";
@@ -11,6 +11,17 @@ export function SuiteHighlightSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const img = getImage("pair-suite-suite");
   const shouldReduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  const enableParallax = !shouldReduceMotion && !isMobile;
 
   // Smooth parallax scroll effect for the full-bleed background
   const { scrollYProgress } = useScroll({
@@ -20,7 +31,7 @@ export function SuiteHighlightSection() {
 
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
   // If reduced motion is active, disable background parallax translation
-  const y = shouldReduceMotion ? "0%" : parallaxY;
+  const y = enableParallax ? parallaxY : "0%";
 
   return (
     <section

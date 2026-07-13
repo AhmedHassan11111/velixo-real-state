@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { content } from "@/data/content";
@@ -11,6 +11,17 @@ export function HighlightSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const img = getImage("gallery-night");
   const shouldReduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  const enableParallax = !shouldReduceMotion && !isMobile;
 
   // Parallax scroll effect
   const { scrollYProgress } = useScroll({
@@ -19,8 +30,7 @@ export function HighlightSection() {
   });
 
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
-  // If reduced motion is preferred, disable the parallax translation
-  const y = shouldReduceMotion ? "0%" : parallaxY;
+  const y = enableParallax ? parallaxY : "0%";
 
   return (
     <section

@@ -3,6 +3,7 @@ import "./globals.css";
 import { fonts } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 export const metadata: Metadata = {
   title: "VELIXO Estates — Modern Luxury Living",
@@ -29,6 +30,7 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-full bg-paper text-ink">
+        <LoadingScreen />
         <SmoothScroll>
           {children}
         </SmoothScroll>
