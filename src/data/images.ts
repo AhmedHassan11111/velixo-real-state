@@ -12,6 +12,12 @@ export const images: Record<string, ImageAsset> = {
     width: 2752,
     height: 1536,
   },
+  "hero-mobile": {
+    path: "/images/hero-mobile.jpg",
+    alt: "VELIXO residence — mobile hero",
+    width: 1080,
+    height: 1920,
+  },
   "property-overview": {
     path: "/images/property-overview-1.jpg",
     alt: "Wide daytime view of the VELIXO residence facade against the landscape",

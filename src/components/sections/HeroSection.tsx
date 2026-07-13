@@ -10,6 +10,7 @@ import { content } from "@/data/content";
 import { getImage } from "@/data/images";
 
 const heroImg = getImage("hero");
+const heroMobileImg = getImage("hero-mobile");
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -55,7 +56,16 @@ export function HeroSection() {
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover md:block hidden"
+            referrerPolicy="no-referrer"
+          />
+          <Image
+            src={heroMobileImg.path}
+            alt={heroMobileImg.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover md:hidden"
             referrerPolicy="no-referrer"
           />
         </motion.div>
