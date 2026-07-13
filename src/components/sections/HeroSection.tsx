@@ -27,6 +27,10 @@ export function HeroSection() {
 
   const enableParallax = !shouldReduceMotion && !isMobile;
 
+  const heroWrapperClass = isMobile
+    ? "absolute inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 hero-min"
+    : "fixed inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 md:pt-32 md:pb-16 hero-fixed";
+
   // Scroll tracking for Hero parallax on the outer non-sticky wrapper
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -44,7 +48,7 @@ export function HeroSection() {
 
   return (
     <div ref={containerRef} className="relative w-full z-0 hero-min">
-      <div className="fixed inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 md:pt-32 md:pb-16 hero-fixed" style={{ zIndex: 0 }}>
+      <div className={heroWrapperClass} style={{ zIndex: 0 }}>
         {/* Layer 1 — Base background photo (lowest) with scale and y translation */}
         <motion.div
           className="absolute inset-0 w-full h-full"
