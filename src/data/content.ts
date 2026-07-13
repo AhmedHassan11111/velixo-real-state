@@ -58,6 +58,11 @@ export interface FooterContent {
   ctaHref: string;
   contactHref: string;
   creditHref: string;
+  socials: {
+    platform: "linkedin" | "instagram" | "x";
+    href: string;
+    label: string;
+  }[];
   columns: {
     title: string;
     links: NavItem[];
@@ -309,9 +314,14 @@ export const content: SiteContent = {
   footer: {
     headline: "VELIXO Estates",
     ctaLabel: "Contact Velixo.io",
-    ctaHref: "#contact",
+    ctaHref: "https://www.linkedin.com/in/ahmed-hassan-65b072422?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     contactHref: "mailto:hello@velixo.io",
     creditHref: "https://velixo.io",
+    socials: [
+      { platform: "linkedin", href: "https://www.linkedin.com/in/ahmed-hassan-65b072422?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
+      { platform: "instagram", href: "https://www.instagram.com/velixo_io?igsh=MWRlNTdrZ2xwMmFk", label: "Instagram" },
+      { platform: "x", href: "https://x.com/velixo_io", label: "X" },
+    ],
     columns: [
       {
         title: "Explore",
@@ -319,14 +329,6 @@ export const content: SiteContent = {
           { label: "The Residence", href: "#residence" },
           { label: "Architecture", href: "#architecture" },
           { label: "Lifestyle", href: "#lifestyle" },
-        ],
-      },
-      {
-        title: "Connect",
-        links: [
-          { label: "Instagram", href: "https://velixo.io" },
-          { label: "LinkedIn", href: "https://velixo.io" },
-          { label: "Email", href: "mailto:hello@velixo.io" },
         ],
       },
     ],
