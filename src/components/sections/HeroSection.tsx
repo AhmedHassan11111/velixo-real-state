@@ -43,8 +43,8 @@ export function HeroSection() {
   const finalOpacityText = enableParallax ? opacityText : 1;
 
   return (
-    <div ref={containerRef} className="relative w-full z-0" style={{ minHeight: "100svh" }}>
-      <div className="fixed inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 md:pt-32 md:pb-16" style={{ minHeight: "100svh", zIndex: 0 }}>
+    <div ref={containerRef} className="relative w-full z-0 hero-min">
+      <div className="fixed inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 md:pt-32 md:pb-16 hero-fixed" style={{ zIndex: 0 }}>
         {/* Layer 1 — Base background photo (lowest) with scale and y translation */}
         <motion.div
           className="absolute inset-0 w-full h-full"

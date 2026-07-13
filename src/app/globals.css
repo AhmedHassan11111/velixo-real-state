@@ -176,6 +176,25 @@
     overscroll-behavior-y: none;
   }
 
+  .hero-fixed {
+    height: 100svh;
+    height: 100dvh;
+  }
+
+  .hero-min {
+    min-height: 100svh;
+    min-height: 100dvh;
+  }
+
+  @supports not (height: 100dvh) {
+    .hero-fixed {
+      height: 100vh;
+    }
+    .hero-min {
+      min-height: 100vh;
+    }
+  }
+
   html {
     @apply font-sans;
   }
