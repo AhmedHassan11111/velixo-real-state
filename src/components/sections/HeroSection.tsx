@@ -43,7 +43,7 @@ export function HeroSection() {
 
   return (
     <div ref={containerRef} className="relative w-full z-0" style={{ minHeight: "100svh" }}>
-      <div className="fixed inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 md:pt-32 md:pb-16" style={{ minHeight: "100svh" }}>
+      <div className="fixed inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 md:pt-32 md:pb-16" style={{ minHeight: "100svh", zIndex: 0 }}>
         {/* Layer 1 — Base background photo (lowest) with scale and y translation */}
         <motion.div
           className="absolute inset-0 w-full h-full"
@@ -97,9 +97,13 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-wrap items-start sm:items-center gap-3 sm:gap-4">
               <a
                 href="#residence"
-                className="glass-cta inline-flex items-center justify-center rounded-full px-8 py-3.5 text-base font-medium uppercase tracking-wider w-full sm:w-auto"
+                className="hero-cta inline-flex items-center justify-center rounded-full px-8 py-3.5 text-base font-medium uppercase tracking-wider w-full sm:w-auto gap-2"
               >
-                {content.hero.ctaPrimary}
+                <span>{content.hero.ctaPrimary}</span>
+                <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
               </a>
               <a
                 href="#contact"

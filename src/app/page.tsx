@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Navbar />
       <HeroSection />
-      <main className="relative z-10 bg-paper">
+      <main className="relative z-20 bg-paper">
         <PropertyOverview />
         <ImagePairSection pair={content.imagePairs[0]} index={0} />
         <ImagePairSection pair={content.imagePairs[1]} index={1} />
