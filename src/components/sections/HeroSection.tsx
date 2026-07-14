@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "@/components/kit/Eyebrow";
@@ -15,15 +15,6 @@ const heroMobileImg = getImage("hero-mobile");
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 768px)");
-    setIsMobile(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
 
   useEffect(() => {
     let lastWidth = window.innerWidth;
@@ -39,9 +30,7 @@ export function HeroSection() {
 
   const enableParallax = !shouldReduceMotion;
 
-  const heroWrapperClass = isMobile
-    ? "absolute inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 hero-min"
-    : "fixed inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 md:pt-32 md:pb-16 hero-fixed";
+  const heroWrapperClass = "fixed inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 md:pt-32 md:pb-16 hero-fixed";
 
   const finalYBg = "0%";
   const finalScaleBg = 1;
