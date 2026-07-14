@@ -25,17 +25,6 @@ export function HeroSection() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  useEffect(() => {
-    const setHeroHeight = () => {
-      const height = window.innerHeight;
-      document.documentElement.style.setProperty("--hero-height", `${height}px`);
-    };
-
-    setHeroHeight();
-    window.addEventListener("resize", setHeroHeight);
-    return () => window.removeEventListener("resize", setHeroHeight);
-  }, []);
-
   const enableParallax = !shouldReduceMotion && !isMobile;
 
   const heroWrapperClass = isMobile
