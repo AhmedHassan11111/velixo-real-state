@@ -37,7 +37,7 @@ export function HeroSection() {
     return () => window.removeEventListener("resize", setHeroHeight);
   }, []);
 
-  const enableParallax = !shouldReduceMotion && !isMobile;
+  const enableParallax = !shouldReduceMotion;
 
   const heroWrapperClass = isMobile
     ? "absolute inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 hero-min"

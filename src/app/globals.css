@@ -386,10 +386,6 @@
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
   }
-  .glass-navbar {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
   .glass-cta {
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
