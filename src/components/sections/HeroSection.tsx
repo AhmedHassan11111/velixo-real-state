@@ -25,6 +25,18 @@ export function HeroSection() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
+  useEffect(() => {
+    let lastWidth = window.innerWidth;
+    const setHeroHeight = () => {
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      document.documentElement.style.setProperty("--hero-height", `${window.innerHeight}px`);
+    };
+    document.documentElement.style.setProperty("--hero-height", `${window.innerHeight}px`);
+    window.addEventListener("resize", setHeroHeight);
+    return () => window.removeEventListener("resize", setHeroHeight);
+  }, []);
+
   const enableParallax = !shouldReduceMotion && !isMobile;
 
   const heroWrapperClass = isMobile
