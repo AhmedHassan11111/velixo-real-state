@@ -179,8 +179,23 @@
   }
 
   .hero-fixed {
-    height: 100svh;
     height: 100dvh;
+    height: var(--hero-height, 100dvh);
+  }
+
+  .hero-min {
+    min-height: 100dvh;
+    min-height: var(--hero-height, 100dvh);
+  }
+
+  @supports not (height: 100dvh) {
+    .hero-fixed {
+      height: var(--hero-height, 100vh);
+    }
+
+    .hero-min {
+      min-height: var(--hero-height, 100vh);
+    }
   }
 
   .hero-min {

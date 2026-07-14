@@ -25,7 +25,18 @@ export function HeroSection() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  const enableParallax = !shouldReduceMotion && !isMobile;
+  useEffect(() => {
+    const setHeroHeight = () => {
+      const height = window.innerHeight;
+      document.documentElement.style.setProperty("--hero-height", `${height}px`);
+    };
+
+    setHeroHeight();
+    window.addEventListener("resize", setHeroHeight);
+    return () => window.removeEventListener("resize", setHeroHeight);
+  }, []);
+
+  const enableParallax = !shouldReduceMotion;
 
   const heroWrapperClass = isMobile
     ? "absolute inset-0 w-full overflow-hidden flex flex-col justify-end pt-28 pb-10 hero-min"
